@@ -1,26 +1,35 @@
 var through = require('through2');
 var gutil = require('gulp-util');
+var path = require('path');
 
+module.exports = function(outputFile){
 
-module.exports = function(outname){
-  var paths = '';
+  var output = '';
 
+  //write the content of the outputFile
   var write = function (file, enc, cb){
-    if (file.path != "undefined"){
-      paths =  paths + '\n' + '@import "' + file.path + '"';
+    var importFile = file.base + file.path.replace( file.cwd + "\\" , ''); 
+    
+    //gutil.log("Imported file: "+ gutil.colors.cyan(importFile));
+
+    if (importFile != "undefined"){
+      output =  output + '@import "' + importFile + '"; \n';
     }
+    
     cb();
   };
 
   var flush = function(cb){
-    gutil.log(gutil.colors.cyan(paths));
 
+    //create the new 'outputFile' with 'output' as content
     var newFile = new gutil.File({
-      path: __dirname + '/' + outname + '.styl',
-      contents: new Buffer(paths)
+      path: outputFile,
+      contents: new Buffer(output)
     });
 
+    //outputs the new file on gulp stream
     this.push(newFile);
+    
     cb();
   };
 
