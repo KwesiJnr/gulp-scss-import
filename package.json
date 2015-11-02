@@ -1,0 +1,33 @@
+{
+  "name": "gulp-scss-import",
+  "version": "1.0.0",
+  "description": "SCSS @import generator for Gulp",
+  "main": "gulp-scss-import.js",
+  "dependencies": {
+    "through2": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "vinyl": "^1.1.0",
+    "path": "^0.12.7",
+    "gulp-debug": "^2.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kino90/gulp-scss-import.git"
+  },
+  "keywords": [
+    "scss",
+    "gulp",
+    "import",
+    "generator"
+  ],
+  "author": "Luca 'Kino' Maroni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kino90/gulp-scss-import/issues"
+  },
+  "homepage": "https://github.com/kino90/gulp-scss-import"
+}
